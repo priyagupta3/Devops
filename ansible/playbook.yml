@@ -15,5 +15,7 @@
     - name: Printing Failure Message
       debug: msg='httpd installation failed!!'
       when: temp_var is failed 
-
+    - name: Https is already installed
+      debug: msg='httpd already installed'
+      when: temp_var.changed == false and temp_var.rc == 0 
 ...
